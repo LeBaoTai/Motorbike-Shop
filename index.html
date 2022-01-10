@@ -4,9 +4,222 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Motorbike Shop</title>
+  <link rel="shortcut icon" href="https://cdn-icons.flaticon.com/png/512/2737/premium/2737154.png?token=exp=1641469539~hmac=9d09d90bee52f3bd13afe6507d023f17">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
 </head>
-<body>
-  
+<body onload="hienThiTrangChu()">
+  <!-- header -->
+  <div class="header">
+    <div class="left">
+      <img src="./assets/image/shop/shop-icon.png" alt="">
+    </div>
+
+    <div class="middle">
+      <h2>Motorbike Shop BT</h2>
+    </div>
+
+    <div class="right">
+      <!-- default -->
+      <div class="default">
+        <div class="user">
+          <i class="far fa-user"></i>
+          <span onclick="moFormDangKy()"> <b>Đăng ký</b></span>
+          /
+          <span onclick="moFormDangNhap()"> Đăng nhập</span>
+        </div>
+        <div class="gio-hang" onclick="hienThiGioHang()">
+          <span>Giỏ Hàng</span>
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+      </div>
+
+      <div class="client">
+        <div class="account">
+          <i class="fas fa-user-alt"></i>
+          <div class="account_ctl">
+            <span id="clientName" class="name">Name</span>
+            <span class="clt" onclick="dangXuat()">Đăng xuất</span>
+          </div>
+        </div>
+
+        <div class="gio-hang">
+          <div onclick="hienThiGioHang()">
+            <span>Giỏ hàng</span>
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- body -->
+  <div class="body">
+    <div class="left">
+      <div class="search">
+        <div class="active search-wrap">
+          <div class="search__action" onclick="toggleTimKiem()">
+            <span>Tìm kiếm</span>
+            <i class="fas fa-sort"></i>
+          </div>
+          
+          <div class="search__condition">
+            <div class="search__condition-text">
+              <input type="text" placeholder="Nhập tên xe">
+              <i class="fas fa-search" onclick="timKiem()"></i>
+            </div>
+
+            <select name="" id="search__condition-name">
+              <option value="all">Tất cả</option>
+              <option value="BMW">BMW</option>
+              <option value="Ducati">Ducati</option>
+              <option value="Harley Davidson">Harley</option>
+              <option value="Kawasaki">Kawasaki</option>
+              <option value="Honda">Honda</option>
+              <option value="Suzuki">Suzuki</option>
+              <option value="Yamaha">Yamaha</option>
+            </select>
+
+            <select name="" id="search__condition-price">
+              <option value="0">Tất cả</option>
+              <option value="1">Dưới 100tr</option>
+              <option value="2">Từ 100tr đến 500tr</option>
+              <option value="3">Từ 500tr đến 1tỷ</option>
+              <option value="4">Trên 1tỷ</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <ul class="list-motor">
+        <li onclick="phanLoaiSanPham(event, 'all')" class="active-list">Tất cả</li>
+        <li onclick="phanLoaiSanPham(event, 'BMW')">BMW</li>
+        <li onclick="phanLoaiSanPham(event, 'Ducati')">Ducati</li>
+        <li onclick="phanLoaiSanPham(event, 'Harley Davidson')">Harley</li>
+        <li onclick="phanLoaiSanPham(event, 'Kawasaki')">Kawasaki</li>
+        <li onclick="phanLoaiSanPham(event, 'Honda')">Honda</li>
+        <li onclick="phanLoaiSanPham(event, 'Suzuki')">Suzuki</li>
+        <li onclick="phanLoaiSanPham(event, 'Yamaha')">Yamaha</li>
+      </ul>
+    </div>
+
+    <div class="right">
+      <div class="right-title"></div>
+      <div class="right-subtitle">Không tìm thấy sản phẩm</div>
+      <div class="right-product"></div>
+      <div class="right-pagination"></div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer">
+    <div class="footer-left">
+      <span> Phương thức thanh toán</span>
+      <div class="thanh-toan">
+        <img src="./assets/image/thanh-toan/thanh-toan-dien-tu-4.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="footer-right">
+        <span class="contact">Kết nối với chúng tôi</span>
+        <span class="address"><i class="fas fa-map-marked"></i>123/Phường 3, Thành phố Hồ Chí Minh</span>
+        <span class="phone"><i class="fas fa-phone-volume"></i>SDT: 01205774123</span>
+    </div>
+  </div>
+
+  <!-- modal_detail -->
+  <div class="modal__detail">
+    <div class="modal_overlay"></div>
+    <div class="modal_body">
+      <div class="product__item-detail">
+        <div class="product__item-detail-header">
+          <h2>THÔNG TIN CHI TIẾT</h2>
+          <div class="roduct__item-detail-close" onclick="dongFormDetail()">
+            <i class="fas fa-times-circle"></i>
+          </div>
+        </div>  
+
+        <div class="product__item-detail-body">
+          <div class="product__item-detail-img">
+            <img src="" alt="">
+          </div>
+          <div class="product__item-detail-name">
+            <span class="name"></span>
+            <span class="price"></span>
+            <span class="NSX"></span>
+          </div>
+        </div>
+
+        <div class="product__item-detail-footer">
+          <div class="quantity">
+            <button class="quantity-down">-</button>
+            <input type="tel"id="quantity-input" class="quantity-input" readonly value="1" />
+            <button class="quantity-up">+</button>
+          </div>
+          <button class="add__cart">Thêm vào giỏi hàng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal form log-reg -->
+  <div class="modal__form">
+    <div class="modal_overlay"></div>
+    <div class="modal_body">
+      <!-- Register form -->
+      <div class="auth-form register">
+        <div class="auth-form__container">
+            <div class="auth-form__header">
+              <h3 class="auth-form__heading">Đăng ký</h3>
+              <span class="auth-form__switch-btn" onclick="toggleForm()">Đăng nhập</span>
+            </div>
+    
+            <div class="auth-form__form">
+              <div class="auth-form__group">
+                <input type="text" id="tk-reg" class="auth-form__input" placeholder="Tên đăng nhập">
+              </div>
+              <div class="auth-form__group">
+                <input type="password" id="mk-reg" class="auth-form__input" placeholder="Nhập mật khẩu">
+              </div>
+              <div class="auth-form__group">
+                <input type="password" id="reMk-reg" class="auth-form__input" placeholder="Nhập lại mật khẩu">
+              </div>
+            </div>
+    
+          <div class="auth-form__controls">
+            <button class="btn btn-back" onclick="dongForm()">Thoát</button>
+            <button class="btn btn-primary" onclick="dangKy()">Đăng kí </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login form -->
+      <div class="auth-form login">
+        <div class="auth-form__container">
+            <div class="auth-form__header">
+              <h3 class="auth-form__heading">Đăng nhập</h3>
+              <span class="auth-form__switch-btn" onclick="toggleForm()">Đăng ký</span>
+            </div>
+    
+            <div class="auth-form__form">
+              <div class="auth-form__group">
+                <input id="tk-log" type="text"  class="auth-form__input" placeholder="Tên đăng nhập">
+              </div>
+              <div class="auth-form__group">
+                <input id="mk-log" type="password"  class="auth-form__input" placeholder="Nhập mật khẩu">
+              </div>
+            </div>
+    
+          <div class="auth-form__controls">
+            <button class="btn btn-back" onclick="dongForm()">Thoát</button>
+            <button class="btn btn-primary" onclick="dangNhap()">Đăng nhập</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
 </body>
 </html>

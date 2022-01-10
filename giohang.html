@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motorbike Shop</title>
+  <link rel="shortcut icon" href="https://cdn-icons.flaticon.com/png/512/2737/premium/2737154.png?token=exp=1641469539~hmac=9d09d90bee52f3bd13afe6507d023f17">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/giohang.css">
+</head>
+<body onload="hienThiTrangGioHang()">
+  <div class="header">
+    <div class="left">
+      <img src="./assets/image/shop/shop-icon.png" alt="">
+    </div>
+
+    <div class="middle">
+      <h2>Motorbike Shop BT</h2>
+    </div>
+
+    <div class="right">
+      <div class="client">
+        <div class="account">
+          <i class="fas fa-user-alt"></i>
+          <div class="account_ctl">
+            <span id="clientName" class="name"></span>
+            <span class="clt" onclick="dangXuat()">Đăng xuất</span>
+          </div>
+        </div>
+
+        <div class="gio-hang">
+          <div onclick="hienThiGioHang()">
+            <span onclick="chuyenTrangChu()">Trang Chủ</span>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="cart-body">
+      <div class="cart">
+        <div class="cart-header">
+          Giỏ hàng
+        </div>
+
+        <div class="cart__body-item">
+          <div class="cart__body-item-header">
+            <div class="cart__body-item-name">
+              Tên sản phẩm
+            </div>
+
+            <div class="cart__body-item-price">
+              Giá
+            </div>
+
+            <div class="cart__body-item-quantily">
+              Số lượng
+            </div>
+
+            <div class="cart__body-item-totalPrice">
+              Thành tiền
+            </div>
+
+            <div class="cart__body-item-delete">
+              Xoá
+            </div>
+          </div>
+
+          <div class="cart__body-item-content"></div>
+        </div>
+
+        <div class="cart__body-pay">
+          <div class="cart__body-pay-content">
+            Tổng tiền:
+            <div class="cart__body-pay-totalprice">
+              
+            </div>
+            <div class="cart__body-pay-btn">
+              <button onclick="xoaTatCaSanPham()">Xoá tất cả sản phẩm</button>
+              <button onclick="datHang()">Đặt hàng</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart__body-order">
+          <div class="cart__body-order-header">
+            Đơn hàng đã đặt
+          </div>
+
+          <div class="cart__body-order-detail">
+            <div class="order__detail">
+              <div class="order__detail-stt">
+                STT
+              </div>
+              <div class="order__detail-name">
+                Tên sản phẩm
+              </div>
+
+              <div class="order__detail-totalPrice">
+                Thành tiền
+              </div>
+
+              <div class="order__detail-date">
+                Ngày đặt hàng
+              </div>
+
+              <div class="order__detail-status">
+                Trạng thái
+              </div>
+            </div>
+
+            <div class="order__item">
+              <div class="order__item-content">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer">
+    <div class="footer-left">
+      <span> Phương thức thanh toán</span>
+      <div class="thanh-toan">
+        <img src="./assets/image/thanh-toan/thanh-toan-dien-tu-4.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="footer-right">
+        <span class="contact">Kết nối với chúng tôi</span>
+        <span class="address"><i class="fas fa-map-marked"></i>123/Phường 3, Thành phố Hồ Chí Minh</span>
+        <span class="phone"><i class="fas fa-phone-volume"></i>SDT: 01205774123</span>
+    </div>
+  </div>
+
+<script src="./js/giohang.js"></script>
+</body>
+</html>
