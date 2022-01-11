@@ -316,28 +316,32 @@ function dongFormDetail () {
   }
 }
 
-function batTimKiem(togtimKiem, timKiem) {
+function batTimKiem(togtimKiem, timKiem, title) {
   togtimKiem.classList.remove('active');
   timKiem.style.display = 'flex';
+  title.style.display = 'none';
 }
 
-function dongTimKiem(togtimKiem, timKiem) { 
+function dongTimKiem(togtimKiem, timKiem, nutTrang, title) { 
   togtimKiem.classList.add('active');
   timKiem.style.display = 'none';
+  nutTrang.style.display = 'flex';
+  title.style.display = 'block';
   document.querySelector('.right-subtitle').style.display = 'none';
   const duLieuSanPham = JSON.parse(localStorage.getItem('product'));
   hienThiDanhSachSanPham(duLieuSanPham, 8, 'Tất cả Xe');
 }
 
 function toggleTimKiem() {
-  var timKiem = document.querySelector('.search__condition');
-  var togtimKiem = document.querySelector('.search-wrap');
-
+  const timKiem = document.querySelector('.search__condition');
+  const togtimKiem = document.querySelector('.search-wrap');
+  const nutTrang = document.querySelector('.right-pagination');
+  const title = document.querySelector('.right-title');
   if(timKiem.style.display === 'none') {
-    batTimKiem(togtimKiem, timKiem);
+    batTimKiem(togtimKiem, timKiem, title);
   }
   else {
-    dongTimKiem(togtimKiem, timKiem);
+    dongTimKiem(togtimKiem, timKiem, nutTrang, title);
   }
 }
 
@@ -349,6 +353,8 @@ function timKiem() {
 
   const arrayProduct = JSON.parse(localStorage.getItem('product'));
   const thongBao = document.querySelector('.right-subtitle');
+  const danhSanhSanPham = document.querySelector('.right-product');
+  const nutTrang = document.querySelector('.right-pagination');
 
   var arrayProductTimKiem = [];
   if (elementNangCao.style.display === 'flex') {
@@ -363,6 +369,8 @@ function timKiem() {
 
       if(checkTimKiem == 0) {
         thongBao.style.display = 'block';
+        nutTrang.style.display = 'none';
+        danhSanhSanPham.innerHTML = ``;
         return;
       }
       else {
