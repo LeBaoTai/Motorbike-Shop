@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee+Outline&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -17,7 +18,7 @@ img {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-family: sans-serif;
+  font-family: Roboto;
 }
 
 /* left */
@@ -98,6 +99,40 @@ img {
   border: 1px solid #548CFF;
   border-radius: 21px;
   transition: all 0.1s ease-in;
+}
+
+/* slider */
+
+.slider {
+  padding: 150px;
+}
+
+.slider__content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #f3f3f3;
+}
+
+.slider__header {
+  padding: 10px;
+  font-size: 3rem;
+  font-weight: 600;
+  font-family: 'Bungee Outline';
+  text-transform: uppercase;
+  color: #548CFF;
+}
+
+.slider__about {
+  padding: 10px;
+  font-size: 1.7rem;
+  color: rgba(0, 0, 0, 0.6);
+  width: 60%;
+  text-align: center;
+  font-weight: 400;
+  font-family: Roboto;
 }
 
 /* body */
